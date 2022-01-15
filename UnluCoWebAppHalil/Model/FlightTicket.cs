@@ -9,20 +9,20 @@ namespace UnluCoWebAppHalil.Model
     {
         public FlightTicket(string name, string surname, int id, string flightCode, DateTime flightDate,bool isActive)
         {
-            this.name = name;
-            this.surname = surname;
-            this.id = id;
-            this.flightCode = flightCode;
-            this.flightDate = flightDate;
-            this.isActive = isActive;
+            this.Name = name;
+            this.Surname = surname;
+            this.Id = id;
+            this.FlightCode = flightCode;
+            this.FlightDate = flightDate;
+            this.IsActive = isActive;
         }
 
-        public string name { get; set; }
-        public string surname { get; set; }
-        public int id { get; set; }
-        public string flightCode { get; set; }
-        public bool isActive { get; set; }
-        public DateTime flightDate { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int Id { get; set; }
+        public string FlightCode { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime FlightDate { get; set; }
 
     }
 }

@@ -26,7 +26,7 @@ namespace UnluCoWebAppHalil
         [HttpGet("{id}")]
         public ActionResult GetFlightTicket(int id)
         {
-            var ticket = FlightList.Where(x => x.id == id).FirstOrDefault();
+            var ticket = FlightList.Where(x => x.Id == id).FirstOrDefault();
             if(ticket == null)
             {
                 return BadRequest(ticket);
@@ -34,42 +34,42 @@ namespace UnluCoWebAppHalil
             return Ok(ticket);
         }
         [HttpPost]
-        public ActionResult addFlightTicket([FromBody]FlightTicket newflight)
+        public ActionResult AddFlightTicket([FromBody]FlightTicket newflight)
         {
             FlightList.Add(newflight);
             return Ok();
         } 
         [HttpDelete]
-        public ActionResult deleteFlightTicket(int id)
+        public ActionResult DeleteFlightTicket(int id)
         {
-            var ticket=FlightList.Where(x=>x.id==id).FirstOrDefault();
+            var ticket=FlightList.Where(x=>x.Id==id).FirstOrDefault();
             FlightList.Remove(ticket);
             return Ok();
         }
         [HttpPut("{id}")]
-        public ActionResult updateFlightTicket(int id,[FromBody]FlightTicket flightTicket)
+        public ActionResult UpdateFlightTicket(int id,[FromBody]FlightTicket flightTicket)
         {
-            var ticket = FlightList.Any(x => x.id == id);
-            var ticket2 =FlightList.Where(x => x.id == id).FirstOrDefault();
+            var ticket = FlightList.Any(x => x.Id == id);
+            var ticket2 =FlightList.Where(x => x.Id == id).FirstOrDefault();
             if (ticket)
             {
-                ticket2.id = flightTicket.id;
-                ticket2.name = flightTicket.name;
-                ticket2.surname = flightTicket.surname;
-                ticket2.flightCode = flightTicket.flightCode;
-                ticket2.flightDate = flightTicket.flightDate;
+                ticket2.Id = flightTicket.Id;
+                ticket2.Name = flightTicket.Name;
+                ticket2.Surname = flightTicket.Surname;
+                ticket2.FlightCode = flightTicket.FlightCode;
+                ticket2.FlightDate = flightTicket.FlightDate;
                 return Ok();
             }
             return BadRequest();
         }
         [HttpPatch] 
-        public ActionResult patchFlightTicket(int id, [FromBody] FlightTicket flightTicket)
+        public ActionResult PatchFlightTicket(int id, [FromBody] FlightTicket flightTicket)
         {
-            var ticket = FlightList.Any(x => x.id == id);
-            var ticket2 = FlightList.Where(x => x.id == id).FirstOrDefault();
+            var ticket = FlightList.Any(x => x.Id == id);
+            var ticket2 = FlightList.Where(x => x.Id == id).FirstOrDefault();
             if (ticket)
             {
-                ticket2.id = flightTicket.id;
+                ticket2.Id = flightTicket.Id;
                 return Ok();
             }
             return BadRequest();
